@@ -1,0 +1,1 @@
+export const mainUrl:string ='http//api/';

@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* Reset de márgenes, paddings y box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    font-size: 16px; 
+    line-height: 1.5; 
+    font-family: Roboto Condensed, sans-serif;
+    color: #000; 
+    background-color: #fff; 
+  }
+  
+  ul, ol {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+  }
+  
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+  }
+  
+  input, textarea, select {
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+  }
+  
