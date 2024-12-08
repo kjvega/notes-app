@@ -15,6 +15,8 @@
         background-color: #003865;
 
         .image {
+            width: 90px;
+            height: 80px;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -33,7 +35,7 @@
                 border-radius: 4px;
                 cursor: pointer;
                 font-size: 16px;
-                font-weight: 300;
+                font-weight: 400;
             }
 
             button:hover {
@@ -63,7 +65,6 @@
                 font-size: 40px;
                 font-weight: bold;
                 color: #003865;
-
             }
 
             .description {
@@ -72,7 +73,8 @@
                 justify-content: center;
                 align-items: center;
                 font-size: 32px;
-                padding: 10px;
+                padding: 30px;
+                font-weight: bold;
             }
 
             button {
@@ -97,6 +99,16 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            margin: 0 10px 0 10px;
+
+            .image{
+                width: 2800px;
+                height: 600px;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+
+            }
 
         }
     }
