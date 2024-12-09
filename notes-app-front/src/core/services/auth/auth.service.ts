@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { mainUrl } from '../../envairoments/envairoment';
+import { mainUrl } from '../../../envairoments/envairoment';
 import { HttpClient } from '@angular/common/http';
-import { Crdencials, User } from '../../models/auth/auth-model';
+import { Crdencials, User } from '../../../models/auth/auth-model';
 import { Observable } from 'rxjs';
 
 @Injectable({

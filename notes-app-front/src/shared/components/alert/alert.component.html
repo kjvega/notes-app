@@ -1,0 +1,9 @@
+<div *ngIf="alert" [ngClass]="['toast-container toast-top-right', 'alert-' + alert.type, fadeOut ? 'fade-out' : '']">
+    <h2 class="title">{{alert.type}}</h2>
+    <span>{{alert.message}}</span>
+</div>
+
+<!-- <div  [ngClass]="['toast-container toast-top-right', 'alert-' + 'info', fadeOut ? 'fade-out' : '']">
+    <h2 class="title">error</h2>
+    <span>chale fallo</span>
+</div> -->

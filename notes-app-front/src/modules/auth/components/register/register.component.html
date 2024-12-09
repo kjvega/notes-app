@@ -1,1 +1,60 @@
-<p>register works!</p>
+
+<div class="container">
+    <div class="container-image">
+        <img alt="logo-nota-app" src="assets/images/auth/register-form.png">
+    </div>
+    <form class="container-main-form" [formGroup]="registerForm" (ngSubmit)="saveRegister()">
+        <div class="container-image-form">
+            <img alt="logo-nota-app" src="assets/images/logo.png">
+        </div>
+        <div class="container-info">
+            <h2 class="title-info">Crea tu cuenta</h2>
+            <p class="text-info">
+                Complete el siguiente formulario para crear su cuenta.
+            </p>
+        </div>
+            <div class="form-container">
+                <div class="form-group">
+                    <label class="form-label">Usuario:</label>
+                    <input class="form-input" type="text" placeholder="Digite su usuario" formControlName="userName">
+                    <small *ngIf="registerForm.get('userName')?.hasError('maxlength') && registerForm.get('userName')?.touched" class="form-error">
+                        El usuario no puede tener más de 10 caracteres.
+                      </small>
+                      <small *ngIf="registerForm.get('userName')?.hasError('required') && registerForm.get('userName')?.touched" class="form-error">
+                        El usuario es obligatorio.
+                      </small>
+                </div>
+            </div>
+            <div class="form-container">
+                <div class="form-group">
+                    <label class="form-label">Contraseña:</label>
+                    <input class="form-input" type="password" placeholder="Digite su Contraseña" formControlName="password">
+                    <small *ngIf="registerForm.get('password')?.hasError('maxlength') && registerForm.get('password')?.touched" class="form-error">
+                        La contraseña no puede tener más de 10 caracteres.
+                      </small>
+                      <small *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched" class="form-error">
+                        La contraseña debe tener al menos 8 caracteres.
+                      </small>
+                </div>
+            </div>
+            <div class="form-container">
+                <div class="form-group">
+                    <label class="form-label">Confirma tu Contraseña:</label>
+                    <input class="form-input" type="password" placeholder="Digite su Contraseña" formControlName="confirmPassword">
+                    <small *ngIf="registerForm.get('confirmPassword')?.hasError('maxlength') && registerForm.get('confirmPassword')?.touched" class="form-error">
+                        La contraseña no puede tener más de 10 caracteres.
+                      </small>
+                      <small *ngIf="registerForm.get('confirmPassword')?.hasError('minlength') && registerForm.get('confirmPassword')?.touched" class="form-error">
+                        La contraseña debe tener al menos 8 caracteres.
+                      </small>
+                      <small *ngIf="registerForm.get('confirmPassword')?.hasError('passwordMismatch') && registerForm.get('confirmPassword')?.touched" class="form-error">
+                        Las contraseñas no coinciden.
+                      </small>
+                </div>
+            </div>
+            <button  class="btn btn-primary btn-lg mt-2" type="submit">
+                Registrarse
+            </button>
+           
+    </form>
+</div>

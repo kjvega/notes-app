@@ -1,0 +1,39 @@
+.toast-container {
+    pointer-events: none;
+    position: fixed;
+    z-index: 999999;
+    width: 340px;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: opacity 0.5s ease-out;
+    padding: 10px;
+
+    .title{
+        font-weight: bold;
+    }
+}
+
+
+.alert-warning {
+    background-color: #ffd967;
+    color: #FFBF01;
+}
+
+.alert-info {
+    background-color: rgb(199, 232, 252);
+    color: rgb(57, 178, 253);
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+
+.toast-top-right {
+    top: 12px;
+    right: 12px;
+}
+
+.fade-out {
+    opacity: 0;
+}
