@@ -1,0 +1,29 @@
+<div class="container">
+    <form class="container-main-form" [formGroup]="modalForm" (ngSubmit)="saveNote()">
+      <div class="form-container">
+        <div class="form-group">
+          <label class="form-label">Titulo</label>
+          <input class="form-input" type="text" placeholder="Digite el titulo" formControlName="title">
+          <small *ngIf="modalForm.get('title')?.hasError('required') && modalForm.get('title')?.touched"
+            class="form-error">
+            El titulo es obligatorio.
+          </small>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Descripción</label>
+            <input class="form-input" type="text" placeholder="Digite la descripción" formControlName="description">
+            <small *ngIf="modalForm.get('description')?.hasError('required') && modalForm.get('description')?.touched"
+              class="form-error">
+              La descripcion es obligatoria.
+            </small>
+          </div>
+      </div>
+      <button class="btn btn-primary btn-lg mt-4" type="submit">
+        Registrarse
+      </button>
+      <button class="btn btn-primary btn-lg mt-2" type="button">
+        Cerrar
+      </button>
+  
+    </form>
+  </div>

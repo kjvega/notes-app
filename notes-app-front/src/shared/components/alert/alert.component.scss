@@ -8,7 +8,7 @@
     transition: opacity 0.5s ease-out;
     padding: 14px;
 
-    .title{
+    .title {
         font-weight: bold;
     }
 }
@@ -27,7 +27,12 @@
 .alert-error {
     background-color: #f8d7da;
     color: #721c24;
-  }
+}
+
+.alert-success {
+    background-color: #D1E7DD;
+    color: #0A3622;
+}
 
 .toast-top-right {
     top: 12px;

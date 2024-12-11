@@ -2,17 +2,25 @@ import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { AlertService } from '../../services/alert/alert.service';
 import { catchError, throwError } from 'rxjs';
+import { AuthService } from '../../services/auth/auth.service';
 
 export const errorInterceptor: HttpInterceptorFn = (req, next) => {
 
   const alertService = inject(AlertService);
-  
+
+  const authService = inject(AuthService);
+
   return next(req).pipe(
     catchError((error) => {
-      if (error.status == 500 ) {
+      if (error.status == 500) {
         alertService.showAlert('error', 'Ocurrió un error al procesar la solicitud.');
       }
-      return throwError(() => error); 
+
+      if (error.status === 403) {
+        authService.logout();
+        alertService.showAlert('error', 'Sesión expirada o no autorizada');
+      }
+      return throwError(() => error);
     })
   );
 };
