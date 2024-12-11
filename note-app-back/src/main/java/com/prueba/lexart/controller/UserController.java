@@ -61,7 +61,7 @@ public class UserController {
     @Operation(summary = "Creacion de Usuario", description = "Crea un nuevo usuario.")
     @ApiResponse(responseCode = "201", description = "Usuario creado exitosamente")
     @PostMapping(value = "/register")
-    @PreAuthorize("isAuthenticated()")
+    //@PreAuthorize("isAuthenticated()")
     ResponseEntity<CreateUserResponse> createUser(@Valid @RequestBody CreateUserRequest request) {
         log.info("Creación de usuario: {}", request);
         return new ResponseEntity<>(userService.createUser(request, request.role()), HttpStatus.CREATED);

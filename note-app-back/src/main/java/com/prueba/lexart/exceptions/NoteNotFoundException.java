@@ -1,7 +1,7 @@
 package com.prueba.lexart.exceptions;
 
-public class NoteNotFoundExeption extends RuntimeException {
-  public NoteNotFoundExeption(String message) {
-    super(message);
-  }
+public class NoteNotFoundException extends RuntimeException {
+    public NoteNotFoundException(String message) {
+        super(message);
+    }
 }

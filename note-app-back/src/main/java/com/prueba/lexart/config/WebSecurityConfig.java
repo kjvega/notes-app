@@ -30,6 +30,7 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(a -> a.requestMatchers(
                                 "/api/auth/login",
+                                "/api/auth/**",
                                 "/h2-console/**",
                                 "/swagger-ui/**",
                                 "/webjars/**",
@@ -38,8 +39,7 @@ public class WebSecurityConfig {
                                 "/v3/api-docs/**")
                         .permitAll()
                         .requestMatchers(
-                                "/api/auth/**",
-                                "/products/**").authenticated())
+                                "/api/notes/**").authenticated())
                 .sessionManagement(h -> h.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .headers(headers -> headers.permissionsPolicy(policy -> policy.policy("frame-src 'self'")))
                 .apply(jwtConfigurer);

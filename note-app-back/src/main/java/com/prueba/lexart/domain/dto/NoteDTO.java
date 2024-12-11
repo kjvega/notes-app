@@ -1,4 +1,11 @@
 package com.prueba.lexart.domain.dto;
 
-public class NoteDTO {
+public record NoteDTO(
+        Long id,
+        String title,
+        String description,
+        Long version
+) {
+
+
 }
