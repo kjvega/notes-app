@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-note-modal',
@@ -11,6 +12,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class NoteModalComponent {
   modalForm:FormGroup = new FormGroup({});
+  constructor(public dialogRef: MatDialogRef<NoteModalComponent>) {}
 
   ngOnInit() {
     this.initForm();
@@ -28,6 +30,10 @@ export class NoteModalComponent {
 
   saveNote(){
 
+  }
+
+  closeModal(): void {
+    this.dialogRef.close(false);
   }
 
 }

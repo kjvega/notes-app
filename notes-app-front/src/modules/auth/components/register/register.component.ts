@@ -52,6 +52,7 @@ export class RegisterComponent {
     this.authService.saveUser(user).subscribe({
       next:()=>{
         this.alertService.showAlert('success', 'Usuario creado Satisfactoriamente');
+        this.registerForm.reset();
       }
     })
 
