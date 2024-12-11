@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { NotesService } from '../../../../services/notes/notes.service';
+import { Note, NoteSave } from '../../../../models/note/note-model';
 
 @Component({
   selector: 'app-note-modal',
@@ -11,6 +13,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrl: './note-modal.component.scss'
 })
 export class NoteModalComponent {
+  private noteService = inject(NotesService);
   modalForm:FormGroup = new FormGroup({});
   constructor(public dialogRef: MatDialogRef<NoteModalComponent>) {}
 
@@ -29,6 +32,22 @@ export class NoteModalComponent {
   }
 
   saveNote(){
+
+    if(this.modalForm.invalid){
+      this.modalForm.markAllAsTouched();
+      return
+    }
+    const note:NoteSave = {
+      title:this.modalForm.get('title')?.value,
+      description:this.modalForm.get('description')?.value,
+      version:0,
+    }
+
+    this.noteService.saveNote(note).subscribe({
+      next:()=>{
+        this.dialogRef.close(true);
+      }
+    })
 
   }
 

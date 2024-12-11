@@ -8,8 +8,9 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { errorInterceptor } from '../core/interceptors/error-interceptor/error.interceptor';
 import { loaderInterceptor } from '../core/interceptors/loader-interceptor/loader.interceptor';
+import { jwtInterceptor } from '../core/interceptors/jwt/jwt.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(),CommonModule,provideAnimations(), provideHttpClient(withFetch(), withInterceptors([errorInterceptor,loaderInterceptor])
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(),CommonModule,provideAnimations(), provideHttpClient(withFetch(), withInterceptors([errorInterceptor,loaderInterceptor,jwtInterceptor])
    )]
 };
