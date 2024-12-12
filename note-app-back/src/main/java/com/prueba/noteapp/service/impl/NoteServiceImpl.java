@@ -38,6 +38,13 @@ public class NoteServiceImpl implements NoteService {
                 .collect(Collectors.toList());
     }
 
+    public List<NoteResponseDTO> getNoteById(Long id) {
+
+        return noteRepository.findAllById(Long.valueOf(id)).stream()
+                .map(NoteMapper::toNoteResponseDTO)
+                .collect(Collectors.toList());
+    }
+
     @Override
     public NoteDTO saveNote(NoteDTO noteDTO) {
         String userEmail = SecurityContextHolder.getContext().getAuthentication().getName();
