@@ -11,10 +11,17 @@
         <div class="container-card" *ngFor="let note of notes">
             <h3 class="card-title">{{note.title}}</h3>
             <p class="card-description">{{note.description}}</p>
+           
+
             <div>
-                <button class="btn btn-primary btn-lg mt-2" (click)="editNote(note)">
+                <div>
+                    <p class="card-date">Creado el: {{ note.createdAt | date:'dd/MM/yyyy' }}</p>
+                    <p class="card-date">Actualizado el: {{ note.updatedAt | date:'dd/MM/yyyy hh:mm:ss a' }}</p>
+                </div>
+                <button class="btn btn-primary btn-lg mt-3" (click)="editNote(note)">
                     Editar
-                </button><button class="btn btn-primary btn-lg mt-2" (click)="deleteNote(note.id)">
+                </button>
+                <button class="btn btn-primary btn-lg mt-2" (click)="deleteNote(note.id)">
                     Eliminar
                 </button>
             </div>

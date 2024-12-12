@@ -4,6 +4,8 @@ import com.prueba.noteapp.domain.dto.NoteDTO;
 import com.prueba.noteapp.domain.dto.NoteResponseDTO;
 import com.prueba.noteapp.domain.entities.Note;
 
+import java.time.LocalDateTime;
+
 
 public class NoteMapper {
 
@@ -14,7 +16,9 @@ public class NoteMapper {
                 note.getTitle(),
                 note.getDescription(),
                 note.getVersion(),
-                note.getUserId()
+                note.getUserId(),
+                note.getCreatedAt(),
+                note.getUpdatedAt()
               );
     }
 
@@ -37,7 +41,8 @@ public class NoteMapper {
         noteResponseDTO.setDescription(note.getDescription());
         noteResponseDTO.setVersion(note.getVersion());
         noteResponseDTO.setUserId(note.getUserId());
-
+        noteResponseDTO.setCreatedAt(note.getCreatedAt());
+        noteResponseDTO.setUpdatedAt(note.getUpdatedAt());
         return noteResponseDTO;
 
     }

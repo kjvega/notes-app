@@ -12,6 +12,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -70,6 +71,7 @@ public class NoteServiceImpl implements NoteService {
         note.setTitle(noteDTO.title());
         note.setDescription(noteDTO.description());
         note.setVersion(noteDTO.version()+1);
+        note.setUpdatedAt(LocalDateTime.now());
 
         Note updatedNote = noteRepository.save(note);
 

@@ -3,6 +3,9 @@ export interface Note {
     title:string;
     description:string;
     version:number;
+    userId:number;
+    createdAt:string;
+    updatedAt:string
 
 }
 

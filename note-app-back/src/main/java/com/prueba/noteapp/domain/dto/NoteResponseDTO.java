@@ -2,6 +2,8 @@ package com.prueba.noteapp.domain.dto;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 
 @Getter
 @Setter
@@ -13,4 +15,6 @@ public class NoteResponseDTO {
      String description;
      Long version;
      Long userId;
+     LocalDateTime createdAt;
+     LocalDateTime updatedAt;
 }
