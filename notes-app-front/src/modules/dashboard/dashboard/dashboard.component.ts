@@ -41,10 +41,26 @@ export class DashboardComponent implements OnInit{
 
 
 
-  openDialog() {
+  saveNote() {
     const dialogRef = this.dialog.open(NoteModalComponent, {
       width: '600px',
       height: '400px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.alertService.showAlert('success', 'Acción Satisfactoria');
+        this.getAllNotes();
+      }
+    });
+  }
+
+
+  editNote(note:Note) {
+    const dialogRef = this.dialog.open(NoteModalComponent, {
+      width: '600px',
+      height: '400px',
+      data: { note }
     });
 
     dialogRef.afterClosed().subscribe(result => {

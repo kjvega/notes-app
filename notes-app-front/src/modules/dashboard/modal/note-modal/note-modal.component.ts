@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { NotesService } from '../../../../services/notes/notes.service';
 import { Note, NoteSave } from '../../../../models/note/note-model';
 
@@ -15,10 +15,15 @@ import { Note, NoteSave } from '../../../../models/note/note-model';
 export class NoteModalComponent {
   private noteService = inject(NotesService);
   modalForm:FormGroup = new FormGroup({});
-  constructor(public dialogRef: MatDialogRef<NoteModalComponent>) {}
+  constructor(public dialogRef: MatDialogRef<NoteModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { note: Note }
+  ) {}
 
   ngOnInit() {
     this.initForm();
+    if(this.data){
+      this.setValueData();
+    }
   }
 
   initForm(){
@@ -26,9 +31,15 @@ export class NoteModalComponent {
       title: new FormControl('',[Validators.required]),
       description: new FormControl('',[Validators.required]),
 
-    }
-   );
-    
+    });
+  }
+
+  setValueData(){
+    this.modalForm.patchValue({
+      title:this.data.note.title,
+      description:this.data.note.description
+    })
+
   }
 
   saveNote(){
@@ -41,6 +52,17 @@ export class NoteModalComponent {
       title:this.modalForm.get('title')?.value,
       description:this.modalForm.get('description')?.value,
       version:0,
+    }
+
+    if(this.data){
+      const noteId = this.data.note.id;
+      note.version = this.data.note.version;
+      this.noteService.editNote(noteId,note).subscribe({
+        next:()=>{
+          this.dialogRef.close(true);
+        }
+      })
+      return
     }
 
     this.noteService.saveNote(note).subscribe({
