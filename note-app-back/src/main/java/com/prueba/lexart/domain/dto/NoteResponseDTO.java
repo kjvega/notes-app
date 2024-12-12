@@ -12,4 +12,5 @@ public class NoteResponseDTO {
      String title;
      String description;
      Long version;
+     Long userId;
 }

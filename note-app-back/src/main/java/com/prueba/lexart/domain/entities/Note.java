@@ -22,4 +22,5 @@ public class Note {
     private String title;
     private String description;
     private Long version;
+    private Long userId;
 }

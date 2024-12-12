@@ -13,7 +13,8 @@ public class NoteMapper {
                 note.getId(),
                 note.getTitle(),
                 note.getDescription(),
-                note.getVersion()
+                note.getVersion(),
+                note.getUserId()
               );
     }
 
@@ -23,6 +24,7 @@ public class NoteMapper {
         note.setTitle(NoteDTO.title());
         note.setDescription(NoteDTO.description());
         note.setVersion(NoteDTO.version());
+        note.setUserId(NoteDTO.userId());
 
         return note;
     }
@@ -34,6 +36,7 @@ public class NoteMapper {
         noteResponseDTO.setTitle(note.getTitle());
         noteResponseDTO.setDescription(note.getDescription());
         noteResponseDTO.setVersion(note.getVersion());
+        noteResponseDTO.setUserId(note.getUserId());
 
         return noteResponseDTO;
 
