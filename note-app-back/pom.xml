@@ -8,11 +8,11 @@
         <version>3.3.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.prueba.lexart</groupId>
-    <artifactId>prueba-lexart</artifactId>
+    <groupId>com.prueba.noteapp</groupId>
+    <artifactId>prueba-noteapp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>prueba-lexart</name>
-    <description>prueba-lexart</description>
+    <name>prueba-noteapp</name>
+    <description>prueba-noteapp</description>
     <url/>
     <licenses>
         <license/>
