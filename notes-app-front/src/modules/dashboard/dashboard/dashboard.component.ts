@@ -6,7 +6,6 @@ import { NotesService } from '../../../services/notes/notes.service';
 import { Note } from '../../../models/note/note-model';
 import { CommonModule } from '@angular/common';
 import { AlertService } from '../../../core/services/alert/alert.service';
-import { log } from 'console';
 import { ConfirmationAlertComponent } from '../../../shared/components/confirmation-alert/confirmation-alert.component';
 
 @Component({
@@ -60,7 +59,8 @@ export class DashboardComponent implements OnInit{
     const dialogRef = this.dialog.open(NoteModalComponent, {
       width: '600px',
       height: '400px',
-      data: { note }
+      data: { note },
+      autoFocus: true,
     });
 
     dialogRef.afterClosed().subscribe(result => {

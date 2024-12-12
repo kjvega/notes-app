@@ -40,7 +40,11 @@
     <div class="form-container">
       <div class="form-group">
         <label class="form-label">Rol:</label>
-        <input class="form-input" type="text" placeholder="Digite su Rol" formControlName="role">
+        <select class="form-input" formControlName="role">
+          <option value="" disabled selected>Seleccione su Rol</option>
+          <option value="ADMINISTRADOR">Administrador</option>
+          <option value="EXTERNO">Usuario</option>
+        </select>
         <small *ngIf="registerForm.get('role')?.hasError('maxlength') && registerForm.get('role')?.touched"
           class="form-error">
           El Rol no puede tener más de 30 caracteres.
@@ -96,7 +100,10 @@
       </div>
     </div>
     <button class="btn btn-primary btn-lg mt-2" type="submit">
-      Registrarse
+      Registrate
+    </button>
+    <button routerLink="/auth" routerLinkActive="active" ariaCurrentWhenActive="page" class="btn btn-primary btn-lg mt-2" type="button">
+      Volver
     </button>
 
   </form>

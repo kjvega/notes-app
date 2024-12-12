@@ -5,11 +5,12 @@ import { passwordMatchValidator } from '../../../../shared/custom-validators/cus
 import { User } from '../../../../models/auth/auth-model';
 import { AuthService } from '../../../../core/services/auth/auth.service';
 import { AlertService } from '../../../../core/services/alert/alert.service';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule,CommonModule,RouterLink, RouterLinkActive],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
