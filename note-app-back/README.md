@@ -209,6 +209,20 @@ curl --request PUT \
   "version": 5,
 }'
 ```
+### Consultar Nota por Id
+- **Descripción** : Permite editar una nota por id de el sistema.
+- **Método HTTP** : `GET`
+- **Path** : `/api/notes/{id}`
+- **Códigos de Respuesta** :
+- - `200`: Nota Editada correctamente..
+- - `403`: Acceso denegado.
+    **Ejemplo de Uso**
+```bash
+curl --request GET \
+  --url http://localhost:8081/api/notes/{1}
+  --header 'Authorization: Bearer [YourTokenHere]' \
+  --header 'Content-Type: application/json' \
+```
 
 **Crear el primer usuario desde la base de datos**
 
