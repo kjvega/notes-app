@@ -51,11 +51,6 @@ public class UserServiceImpl implements UserService {
         this.tokenProvider = tokenProvider;
     }
 
-    @Override
-    public List<UserDTO> getAll() {
-        log.info("consulta de usuarios iniciada");
-        return userRepository.findAll().stream().map(UserMapper::convertToDTO).collect(Collectors.toList());
-    }
 
     @Override
     public CreateUserResponse createUser(CreateUserRequest user, Role role) {

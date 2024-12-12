@@ -35,28 +35,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @Operation(
-            summary = "Ver una lista de usuarios disponibles",
-            description = "Recupera una lista de usuarios disponibles.")
-    @ApiResponses(
-            value = {
-                    @ApiResponse(
-                            responseCode = "200",
-                            description = "Lista recuperada exitosamente",
-                            content = @Content(schema = @Schema(implementation = CreateUserResponse.class))),
-                    @ApiResponse(responseCode = "401", description = "No autorizado para ver la lista de usuarios"),
-                    @ApiResponse(responseCode = "403", description = "Acceso prohibido para ver la lista de usuarios"),
-                    @ApiResponse(responseCode = "404", description = "Lista de usuarios no encontrada"),
-            })
-    @GetMapping
-    @PreAuthorize("isAuthenticated()")
-    public ResponseEntity<CreateUserResponse<List<UserDTO>>> getAll() {
-        log.info("Recuperando a todos los usuarios");
-        CreateUserResponse<List<UserDTO>> response = new CreateUserResponse<>();
-        response.setBody(userService.getAll());
-        response.setMessage("Lista de usuarios obtenida correctamente");
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
+
 
     @Operation(summary = "Creacion de Usuario", description = "Crea un nuevo usuario.")
     @ApiResponse(responseCode = "201", description = "Usuario creado exitosamente")
